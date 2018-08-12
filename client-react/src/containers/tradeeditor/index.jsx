@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import TradeEditor from '../../components/tradeeditor/tradeeditor';
+import TradeEditor from '../../components/tradeeditor';
 
 class TradeEditorContainer extends Component{
 

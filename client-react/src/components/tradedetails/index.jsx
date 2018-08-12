@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import './tradedetails.css';
-import TradeTableContainer from '../../containers/tradetable/tradetable';
-import TradeEditorContainer from '../../containers/tradeeditor/tradeeditor';
-import TradeSearchBarContainer from '../../containers/tradesearchbar/tradesearchbar';
+import TradeTableContainer from '../../containers/tradetable';
+import TradeEditorContainer from '../../containers/tradeeditor';
+import TradeSearchBarContainer from '../../containers/tradesearchbar';
 
 class TradeDetails extends Component {
 

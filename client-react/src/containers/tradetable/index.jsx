@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { tradeSelected } from '../../actions/tradedetails';
-import TradeTable from '../../components/tradetable/tradetable';
+import TradeTable from '../../components/tradetable';
 
 class TradeTableContainer extends Component {
 

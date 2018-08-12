@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import DetailLayout from '../components/detaillayout/detaillayout';
+import DetailLayout from '../components/detaillayout';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';

@@ -8,8 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import About from '../../containers/about';
-import TradeDetails from '../tradedetails/tradedetails';
+import TradeDetails from '../tradedetails';
+import Transfers from '../transfers';
+import Transports from '../transforts';
 import './detaillayout.css';
 
 function TabContainer(props) {
@@ -63,8 +64,8 @@ class DetailLayout extends React.Component {
         </AppBar>
         <Switch>
           <Route path='/detaillayout/trades' component={TradeDetails}/>
-          <Route path='/detaillayout/transfers' component={About}/>
-          <Route path='/detaillayout/transports' component={About}/>
+          <Route path='/detaillayout/transfers' component={Transfers}/>
+          <Route path='/detaillayout/transports' component={Transports}/>
         </Switch>
       </div>
     );

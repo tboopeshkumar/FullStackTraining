@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import TradeSearchBar from '../../components/tradesearchbar/tradesearchbar';
+import TradeSearchBar from '../../components/tradesearchbar';
 
 class TradeSearchBarContainer extends Component{
 
