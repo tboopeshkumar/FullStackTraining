@@ -1,0 +1,24 @@
+.tradeSearchBarRoot{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.searchBarTextField{
+    min-width: 130px !important;
+    max-width: 150px !important;
+    margin: 5px !important;
+    text-align: left !important;
+}
+.sideCheckboxLabel{
+    transform: scale(0.75);
+    transform-origin: top left;
+    margin-top: 5px;
+}
+
+.sideCheckboxFormControlLabel{
+    margin-top: 12px;
+    margin-left: -45px !important;
+    margin-right: 40px !important;
+}

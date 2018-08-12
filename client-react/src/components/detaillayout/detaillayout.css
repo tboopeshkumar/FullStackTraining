@@ -1,0 +1,17 @@
+.tradeAppBarRoot{
+    display: grid;
+    grid-template-columns: 9fr 150px;
+}
+
+.tradeAppBarTabs{
+    grid-column-start: 1
+}
+
+.tradeAppBarUserIcon{
+    grid-column-start: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    line-height: 50px;
+
+}

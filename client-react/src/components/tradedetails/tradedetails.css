@@ -1,0 +1,23 @@
+
+.searchBar {
+    grid-area: searchbar;
+}
+.tradeTable {
+    grid-column-start: 1
+}
+.tradeEditor {
+    grid-column-start: 2;
+    border: 1px solid #BDC3C7 !important;
+}
+.tradeSearchBar{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 1px solid #BDC3C7 !important;
+}
+.gridContainer {
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    grid-gap: 10px;
+    padding-top: 10px;
+  }
+

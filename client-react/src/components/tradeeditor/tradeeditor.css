@@ -1,0 +1,37 @@
+
+
+.tradeEditorContainer {
+    display: 'flex';
+    flex-wrap: 'wrap';
+    text-align: center
+}
+
+.tradeEditorHeader {
+    background: lightgrey;
+}
+
+.tradeEditorHeaderContent{
+    line-height: 30px;
+    margin-left: 15px;
+}
+.tradeEditorTextField{
+    min-width: 200px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    text-align: left !important;
+}
+
+.sideFieldset{
+    margin-top: 5px !important;
+}
+.radioGroup{
+    flex-direction: row !important;
+}
+
+.selectMenu{
+    width : 200px;
+}
+.editButtons{
+    margin: 10px !important;
+}
+
