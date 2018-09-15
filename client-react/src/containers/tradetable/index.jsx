@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { tradeSelected } from '../../actions/tradedetails';
+import { tradeSelected, tradeDeleted } from '../../actions/tradedetails';
 import TradeTable from '../../components/tradetable';
 
 class TradeTableContainer extends Component {
@@ -10,6 +10,7 @@ class TradeTableContainer extends Component {
     }
     onSelectedItemChanged = (selectedItem) =>{
         this.props.tradeSelected(selectedItem);
+        this.props.tradeDeleted(selectedItem);
     }
 
     render() {
@@ -26,10 +27,11 @@ function mapStateToProps(state) {
     
     return {
         columnHeaders: state.tradeDetailsReducers.columnHeaders,
-        rows: state.tradeDetailsReducers.rows
+        rows: state.tradeDetailsReducers.rows,
+        tag: "tag"
     };
 }
 
-export default connect(mapStateToProps,{tradeSelected : tradeSelected})(TradeTableContainer);
+export default connect(mapStateToProps,{tradeSelected : tradeSelected, trdDeleted : tradeDeleted})(TradeTableContainer);
 
 

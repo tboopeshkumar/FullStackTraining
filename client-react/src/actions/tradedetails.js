@@ -9,3 +9,13 @@ export const tradeSelected = (selectedTrade) => {
     })
   }
 }
+export const tradeDeleted = (delectedTarde) => {
+    return dispatch => {
+        dispatch({
+            type: "TRADE_DELETED",
+            payload: {
+                delectedTarde
+            }
+        })
+    }
+}

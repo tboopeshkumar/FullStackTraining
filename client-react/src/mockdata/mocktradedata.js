@@ -1,7 +1,7 @@
 export const tradeDataList =[
     { "tradeDate" : "2017-11-13T05:13:52.332+0000","commodity" : "AL", "side" : "Buy", "quantity" : 100, "price":1860.15,"counterParty" : "Lorem","location" : "BA","tradeStatus" : "OPEN","currency" : "USD"},
     { "tradeDate" : "2017-11-14T05:13:52.332+0000","commodity" : "AL", "side" : "Buy", "quantity" : 10, "price":60.15,"counterParty" : "Lorem","location" : "BA","tradeStatus" : "OPEN","currency" : "USD"},
-    { "tradeDate" : "2017-11-15T05:13:52.332+0000","commodity" : "AL", "side" : "Sell", "quantity" : 52, "price":860.15,"counterParty" : "Lorem","location" : "BA","tradeStatus" : "OPEN","currency" : "USD"},
+    { "tradeDate" : "2017-11-15T05:13:52.332+0000","commodity" : "AL", "side" : "Sell", "quantity" : 52, "price":860.15,"counterParty" : "Amet","location" : "BA","tradeStatus" : "OPEN","currency" : "USD"},
     { "tradeDate" : "2017-11-16T05:13:52.332+0000","commodity" : "AL", "side" : "Buy", "quantity" : 70, "price":180.15,"counterParty" : "Lorem","location" : "LN","tradeStatus" : "OPEN","currency" : "USD"},
     { "tradeDate" : "2017-11-17T05:13:52.332+0000","commodity" : "AL", "side" : "Buy", "quantity" : 120, "price":330.15,"counterParty" : "Lorem","location" : "BA","tradeStatus" : "OPEN","currency" : "USD"},
     { "tradeDate" : "2017-11-17T05:13:52.332+0000","commodity" : "AG", "side" : "Sell", "quantity" : 140, "price":440.15,"counterParty" : "Lorem","location" : "LN","tradeStatus" : "OPEN","currency" : "USD"},

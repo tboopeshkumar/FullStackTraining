@@ -16,6 +16,8 @@ switch(action.type) {
     console.log("New State : ");
     console.log(newState);
     return newState;
+case "TRADE_DELETED":
+    console.log("Trade Deleted");
  default :
  return state
  }
