@@ -26,20 +26,16 @@ export default class TradeEditor extends Component{
         }
         this.state = this.defaultState;
     }
-    componentWillReceiveProps(nextProps){
-         if(nextProps.selectedTrade){
-            const sideValue = nextProps.selectedTrade.side;
-            const counterParty = this.props.counterparties.find(item=> item.code ===nextProps.selectedTrade.counterParty).id;
-            const commodity = this.props.commodities.find(item=> item.code === nextProps.selectedTrade.commodity).id;
-            const location = this.props.locations.find(item=> item.code === nextProps.selectedTrade.location).id;
-            const tradeDate = new Date(nextProps.selectedTrade.tradeDate).toISOString().slice(0,10);
-            const price = nextProps.selectedTrade.price;
-            const quantity = nextProps.selectedTrade.quantity;
-            var newProps ={ sideValue,counterParty,commodity,location,price,quantity,tradeDate};
-            this.setState({...nextProps,...newProps});
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if(nextProps.selectedTrade){
+            let newTradeDate = new Date(nextProps.selectedTrade.tradeDate).toISOString().slice(0,10);
+            let newState = Object.assign({},nextProps,nextProps.selectedTrade,{tradeDate:newTradeDate},);
+            console.log(newState);
+            return newState;
          }
-        
     }
+
     handleSideChange = event => {
         this.setState({...this.state, sideValue: event.target.value });
     };
@@ -58,7 +54,7 @@ export default class TradeEditor extends Component{
         return(
             <div >
                     <div className="tradeEditorHeader">
-                        <div className="tradeEditorHeaderContent">Trade Id</div>
+                        <div className="tradeEditorHeaderContent">Trade Id {this.state._id}</div>
                     </div>
 
                     <form className="tradeEditorContainer">
@@ -82,7 +78,7 @@ export default class TradeEditor extends Component{
                             onChange={this.handleSelectionChange('commodity')}
                         >
                         {commodities && commodities.map(option => (
-                            <MenuItem key={option.id} value={option.id}>
+                            <MenuItem key={option.id} value={option.code}>
                             {option.code}
                             </MenuItem>
                         ))}
@@ -117,7 +113,7 @@ export default class TradeEditor extends Component{
                               }}
                         >
                          {counterparties && counterparties.map(option => (
-                            <MenuItem key={option.id} value={option.id}>
+                            <MenuItem key={option.id} value={option.code}>
                             {option.code}
                             </MenuItem>
                         ))}
@@ -151,7 +147,7 @@ export default class TradeEditor extends Component{
                             onChange={this.handleSelectionChange('location')}
                         >
                          {locations && locations.map(option => (
-                            <MenuItem key={option.id} value={option.id}>
+                            <MenuItem key={option.id} value={option.code}>
                             {option.code}
                             </MenuItem>
                         ))}

@@ -19,7 +19,7 @@ class TradeSearchBarContainer extends Component{
     }
 }
 function mapStateToProps(state) {
-    const  {commodities,counterparties,locations} = state.tradeDetailsReducers;
+    const  {commodities,counterparties,locations} = state.tradeDetails;
     return {commodities,counterparties,locations};
 }
 

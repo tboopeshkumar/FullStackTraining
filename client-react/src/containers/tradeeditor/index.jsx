@@ -11,16 +11,16 @@ class TradeEditorContainer extends Component{
     render(){
         return(
             <TradeEditor 
-            selectedTrade={this.props.selectedTrade}
-            commodities={this.props.commodities}
-            counterparties={this.props.counterparties}
-            locations={this.props.locations}
+                selectedTrade={this.props.selectedTrade}
+                commodities={this.props.commodities}
+                counterparties={this.props.counterparties}
+                locations={this.props.locations}
             />
         )
     }
 }
 function mapStateToProps(state) {
-    const  {selectedTrade, commodities,counterparties,locations} = state.tradeDetailsReducers;
+    const  {selectedTrade, commodities,counterparties,locations} = state.tradeDetails;
     return {selectedTrade, commodities,counterparties,locations};
 }
 
