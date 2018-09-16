@@ -54,3 +54,10 @@ export const counterPartyList =[
     { id : 3, code : 'Dolor', description : 'Dolor'},
     { id : 4, code : 'Amet', description : 'Amet'},
 ];
+
+export const currencyList =[
+    { id : -1, code : '', description : ''},
+    { id : 1, code : 'USD', description : 'Lorem'},
+    { id : 2, code : 'IND', description : 'Ipsum' },
+    { id : 3, code : 'EUR', description : 'Dolor'}
+];

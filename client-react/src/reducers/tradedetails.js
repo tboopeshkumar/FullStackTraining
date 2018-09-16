@@ -1,13 +1,14 @@
 import * as TYPES from '../types/tradedetails';
 
-import { commodityList, counterPartyList, locationList } from '../mockdata/mocktradedata';
+import { commodityList, counterPartyList, locationList,currencyList } from '../mockdata/mocktradedata';
 const initState = {
-    selectedTrade: '',
+    selectedTrade: null,
     columnHeaders: [],
     rows: [],
     commodities: commodityList,
     counterparties: counterPartyList,
     locations: locationList,
+    currencies : currencyList,
     loading: false,
     error: null
 
@@ -16,8 +17,6 @@ export default (state = initState, action) => {
     switch (action.type) {
         case TYPES.TRADE_SELECTED:
             const newState = { ...state, selectedTrade: action.payload.selectedTrade };
-            console.log("New State : ");
-            console.log(newState);
             return newState;
         case "TRADE_DELETED":
             console.log("Trade Deleted");
@@ -40,7 +39,7 @@ export default (state = initState, action) => {
                 rows: action.payload.data
             };
 
-        case TYPES.FETCH_PRODUCTS_FAILURE:
+        case TYPES.FETCH_TRADES_FAILURE:
             // The request failed, but it did stop, so set loading to "false".
             // Save the error, and we can display it somewhere
             // Since it failed, we don't have items to display anymore, so set it empty.

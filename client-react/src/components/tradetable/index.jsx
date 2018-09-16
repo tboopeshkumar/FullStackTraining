@@ -5,8 +5,6 @@ import './tradetable.css';
 class TradeTable extends Component {
     constructor(props) {
         super(props);
-
-       
     }
     
     render() {

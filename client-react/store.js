@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import tradeDetails from './src/reducers/tradedetails';
-import thunk from 'redux-thunk'
+import tradeEditor from './src/reducers/tradeeditor';
+//import thunk from 'redux-thunk'
 const reducer = combineReducers({
- tradeDetails
+ tradeDetails,tradeEditor
 })
 const store = createStore(
  reducer,
- applyMiddleware(thunk)
+ //applyMiddleware(thunk)
 )
 export default store;

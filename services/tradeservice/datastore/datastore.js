@@ -20,26 +20,28 @@ db.once('open', function () {
     });
 });
 
-module.exports.getRecentTrades = function () {
-
-    return new Promise((resolve,reject)=>{
-        const query = Trade.find({}).sort({tradeDate : 'desc'}).limit(10);
-        query.exec().then((docs)=>{
-            resolve({
-                data: docs,
-                headers: mockData.tradeDataHeaders
-            });
-        }).catch((err)=>{
-            console.log(`Error in fetching recent trades ${err}`);
-            reject(err);
-        })
-    });
+module.exports.getRecentTrades = async function () {
+    try {
+        const query =  Trade.find({}).sort({ tradeDate: 'desc' }).limit(10);
+        const docs = await query.exec();
+        return {
+            data: docs,
+            headers: mockData.tradeDataHeaders
+        }
+    } catch (err) {
+        console.log(`Error in fetching recent trades ${err}`);
+        throw Error(err);
+    };
 }
 
-module.exports.saveTrade = function(tradeData){
-    return new Promise((resolve,reject)=>{
-       
-    });
+module.exports.saveTrade = async function (tradeData) {
+    try {
+        delete tradeData._id;
+        return await Trade.create({ ...tradeData });
+    } catch (err) {
+        console.log(`Error in saving trade : ${err}`);
+        throw Error(err);
+    }
 }
 
 
