@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import TradeEditor from '../../components/tradeeditor';
 import { saveTrade , clearSaveStatus } from '../../actions/tradeeditor';
+import { fetchRefData } from '../../actions/refdata';
 
 class TradeEditorContainer extends Component{
 
@@ -16,7 +17,9 @@ class TradeEditorContainer extends Component{
     clearSaveStatus =()=>{
         this.props.clearSaveStatus();
     }
-    
+    componentDidMount = ()=>{
+        fetchRefData();
+    }
 
     render(){
         return(
@@ -37,12 +40,13 @@ class TradeEditorContainer extends Component{
     }
 }
 function mapStateToProps(state) {
-    const  { selectedTrade, commodities,counterparties,locations,currencies } = state.tradeDetails;
+    const  { selectedTrade } = state.tradeDetails;
     const  { saveStatus, error, tradeId,defaultState } = state.tradeEditor;
+    const  { commodities,counterparties,locations,currencies } = state.refData;
     const newState = { saveStatus, error, tradeId , selectedTrade, commodities,counterparties,locations,currencies,defaultState};
     return newState;
 }
 
-export default connect(mapStateToProps, { clearSaveStatus : clearSaveStatus})(TradeEditorContainer);
+export default connect(mapStateToProps, { clearSaveStatus })(TradeEditorContainer);
 
 

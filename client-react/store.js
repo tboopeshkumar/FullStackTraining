@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import tradeDetails from './src/reducers/tradedetails';
 import tradeEditor from './src/reducers/tradeeditor';
-//import thunk from 'redux-thunk'
+import refData from './src/reducers/refdata';
+//import thunk from 'redux-thunk';
 const reducer = combineReducers({
- tradeDetails,tradeEditor
+ tradeDetails,tradeEditor, refData
 })
 const store = createStore(
  reducer,

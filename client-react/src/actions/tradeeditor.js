@@ -1,9 +1,10 @@
 import * as TYPES from '../types/tradeeditor';
 import axios from 'axios';
 import store from '../../store';
+import * as CONSTANTS from '../constants';
 
 export function saveTrade(tradeInfo) {
-    axios.post("http://localhost:3010/trades", {data : tradeInfo})
+    axios.post(CONSTANTS.API_TRADE_SERVICE_SAVE, {data : tradeInfo})
       .then(res => {
         if(res.status != 200)
           store.dispatch(saveTradeFailure({ message : 'Failed to save trade'}))

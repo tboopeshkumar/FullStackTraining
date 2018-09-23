@@ -1,6 +1,7 @@
 import * as TYPES from '../types/tradedetails';
 import axios from 'axios';
 import store from '../../store';
+import * as CONSTENTS from '../constants';
 
 export const tradeSelected = (selectedTrade) => {
   return {
@@ -12,7 +13,7 @@ export const tradeSelected = (selectedTrade) => {
 }
 
 export function fetchTrades() {
-    axios.get("http://localhost:3010/trades")
+    axios.get(CONSTENTS.API_TRADE_SERVICE_FETCH)
       .then(res => {
         if(res.status != 200)
           store.dispatch(fetchTradesFailure({ message : 'Failed to fetch trades'}))
@@ -22,6 +23,8 @@ export function fetchTrades() {
       .catch(error => store.dispatch(fetchTradesFailure(error)));
     return fetchTradesBegin();
 }
+
+
 
 const fetchTradesBegin = () => ({
   type: TYPES.FETCH_TRADES_BEGIN
