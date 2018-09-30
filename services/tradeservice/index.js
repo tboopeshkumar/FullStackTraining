@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const cors = require('cors')
-const port = process.env.PORT || 3010;
+const cors = require('cors');
+const axios = require('axios').default;
+const serviceRegistryURL = `http://127.0.0.1:4000/service`;
+const port = 3010;
 const dataStore = require('./datastore/datastore');
 
 app.use(cors());
@@ -37,5 +39,17 @@ app.post('/trades', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Trade Service Running in ${port}`)
+    console.log(`Trade Service Running in ${port}`);
+    const announce = () =>{
+        axios.put(`${serviceRegistryURL}/trade/${port}`)
+            .then((res)=>{
+                console.log(res.data);
+            }).catch((err)=>{
+                console.log(err);
+                console.log('Error connecting Service Registry');
+                return;
+            })
+    }
+    announce();
+    setInterval(announce, 15*1000);
 })

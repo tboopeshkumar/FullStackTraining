@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+const serviceRegistryURL = `http://localhost:4000/service`;
 const dataStore = require('./datastore/datastore');
-
-const port = process.env.PORT || 3020;
-
+const axios = require('axios').default;
+const port =  3020;
 app.use(cors());
-
 app.get('/', (req, res) => {
     res.json({ result: "ref data service..." });
 });
@@ -58,5 +56,18 @@ app.get('/commodities', async (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Ref Data Service Running in ${port}`)
+    console.log(`Ref Data Service Running in ${port}`);
+
+    const announce = () =>{
+        axios.put(`${serviceRegistryURL}/refdata/${port}`)
+            .then((res)=>{
+                console.log(res.data);
+            }).catch((err)=>{
+                console.log(err);
+                console.log('Error connecting Service Registry');
+                return;
+            })
+    }
+    announce();
+    setInterval(announce, 15*1000);
 })
