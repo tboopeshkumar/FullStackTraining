@@ -63,7 +63,6 @@ app.listen(port, () => {
             .then((res)=>{
                 console.log(res.data);
             }).catch((err)=>{
-                console.log(err);
                 console.log('Error connecting Service Registry');
                 return;
             })
