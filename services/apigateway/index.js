@@ -20,9 +20,10 @@ app.use(passport.session()); // Used to persist login sessions
 
 // Strategy config
 passport.use(new GoogleStrategy({
-    clientID: 'YOUR_CLIENTID_HERE',
-    clientSecret: 'YOUR_CLIENT_SECRET_HERE',
-    callbackURL: 'http://localhost:8000/auth/google/callback'
+    clientID: '7334359760-n7sqk50vr7caplou0idntkh8posi7iul.apps.googleusercontent.com',
+    clientSecret: '3U50KbYQiMYo7viaI0SlY9qf',
+    callbackURL: 'http://localhost:3000/auth/google/callback',
+    
 },
 (accessToken, refreshToken, profile, done) => {
     done(null, profile); // passes the profile data to serializeUser
@@ -51,7 +52,8 @@ function isUserAuthenticated(req, res, next) {
 
 // passport.authenticate middleware is used here to authenticate the request
 app.get('/auth/google', passport.authenticate('google', {
-    scope: ['profile'] // Used to specify the required data
+    scope: ['profile'], // Used to specify the required data
+    prompt: 'select_account consent'
 }));
 
 // The middleware receives the data from Google and runs the function on Strategy config
@@ -59,11 +61,17 @@ app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => 
     res.redirect('/secret');
 });
 
+// Secret route
+app.get('/secret', isUserAuthenticated, (req, res) => {
+    res.send('You have reached the secret route');
+});
+
 // Logout route
 app.get('/logout', (req, res) => {
-    req.logout(); 
-    res.redirect('/');
-});
+    req.logOut();
+    req.session = null;
+    res.send('Logged out successfully');
+;});
 
 
 // Authentication
